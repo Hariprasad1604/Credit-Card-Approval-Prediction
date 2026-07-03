@@ -4,6 +4,16 @@ A machine learning web application that predicts whether a credit card applicati
 
 The project includes data preprocessing, exploratory data analysis (EDA), feature engineering, model comparison, and deployment using a Flask web application.
 
+
+
+## 🌐 Live Demo
+
+**https://credit-card-approval-prediction-ltmd.onrender.com**
+
+## 📂 GitHub Repository
+
+https://github.com/Hariprasad1604/Credit-Card-Approval-Prediction
+
 ---
 
 ## Features
