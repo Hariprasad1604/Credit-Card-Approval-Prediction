@@ -6,9 +6,9 @@ import joblib
 
 app = Flask(__name__)
 
-# ==========================
+
 # Load Saved Files
-# ==========================
+
 
 model = joblib.load("model/credit_card_approval_model.pkl")
 scaler = joblib.load("model/scaler.pkl")
@@ -16,27 +16,25 @@ feature_columns = joblib.load("model/feature_columns.pkl")
 binary_encoders = joblib.load("model/binary_encoders.pkl")
 
 
-# ==========================
+
 # Home Page
-# ==========================
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# ==========================
+
 # Prediction Route
-# ==========================
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
 
     try:
 
-        # --------------------------
-        # Read Form Data
-        # --------------------------
+        
 
         input_data = {
 
@@ -90,15 +88,15 @@ def predict():
 
         }
 
-        # --------------------------
+        
         # Create DataFrame
-        # --------------------------
+      
 
         user_df = pd.DataFrame([input_data])
 
-        # --------------------------
+       
         # Apply Label Encoding
-        # --------------------------
+       
 
         for column in [
             "CODE_GENDER",
@@ -110,9 +108,9 @@ def predict():
                 user_df[column]
             )
 
-        # --------------------------
+        
         # Apply One-Hot Encoding
-        # --------------------------
+        
 
         user_df = pd.get_dummies(
             user_df,
@@ -126,26 +124,26 @@ def predict():
             drop_first=True
         )
 
-        # --------------------------
+        
         # Match Training Features
-        # --------------------------
+        
 
         user_df = user_df.reindex(
             columns=feature_columns,
             fill_value=0
         )
 
-        # --------------------------
+        
         # Scale Features
-        # --------------------------
+       
 
         user_scaled = scaler.transform(
             user_df
         )
          
-        # --------------------------
+        
        # Make Prediction
-        # --------------------------
+        
 
         prediction = model.predict(user_scaled)[0]
 
@@ -184,9 +182,9 @@ def predict():
         )
 
 
-# ==========================
+
 # Run Flask App
-# ==========================
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
