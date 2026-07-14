@@ -12,9 +12,14 @@ The project includes data preprocessing, exploratory data analysis (EDA), featur
 
 ## 📂 GitHub Repository
 
-https://github.com/Hariprasad1604/Credit-Card-Approval-Prediction
+**https://github.com/Hariprasad1604/Credit-Card-Approval-Prediction**
 
 ---
+
+## 🎥 Demo Video
+
+ 
+**https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing**
 
 ## Features
 
